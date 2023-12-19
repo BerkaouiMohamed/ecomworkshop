@@ -42,6 +42,7 @@ background-color: aqua;
 .form-container form input[type="submit"]:active{
 background-color: rgba(0, 255, 255, 0.283);
 border: none;
+cursor: pointer;
 }
 .form-container form input:focus{
 

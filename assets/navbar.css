@@ -12,6 +12,10 @@
 background-color: rgb(61, 61, 61);
 
 }
+.hiddenNav{
+    display: none;
+
+}
 #navbar img {
     height: 70px;
 }
@@ -23,12 +27,18 @@ gap: 50px;
 font-size: 1.4rem;
 list-style-type: none;
 
+
 }
-#navbar ul li a{
+#navbar ul li{
     padding: 2px;
     padding-bottom: 5px;
     border: 2px solid transparent;
     color: white;
     font-variant: small-caps;
+    cursor: pointer;
+}
+#navbar ul li a{
+    color: white;
+
     text-decoration: none;
 }
