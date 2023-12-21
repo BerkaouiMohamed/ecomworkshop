@@ -1,0 +1,28 @@
+main>div{
+    width: 250px;
+    height: 350px;
+
+    border: 2px solid rgba(0, 0, 0, 0.361);
+    border-radius: 5px;
+}
+main>div img{
+    display: block;
+    height: 50%;
+margin: auto;
+}
+
+.desc{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.desc button{
+    width: 50%;
+    margin:0 auto ;
+}
+main{width: 100vw;
+    padding-top: 100px;
+display: flex;
+gap: 50px;
+flex-wrap: wrap;}

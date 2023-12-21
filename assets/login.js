@@ -1,16 +1,22 @@
-let email=document.querySelector('#email')
-let password=document.querySelector('#password')
-const button=document.getElementById('button')
-console.log("hello");
+let email=document.getElementById('email')
+let password=document.getElementById('password')
+const submitBtn=document.getElementById('button')
 
-button.addEventListener('click',function (e){
-    
+
+submitBtn.addEventListener('click',function(e){
     e.preventDefault()
-if (email.value==localStorage.getItem("email") && password.value==localStorage.getItem('password')){
-    localStorage.setItem('isconnected','true')
-    location.pathname='home.html'
+    const users=JSON.parse(localStorage.getItem('users'))
+
+let test=false
+for (user of users){
+    if (user.email==email.value && user.password==password.value){
+        localStorage.setItem('isconnected',"true")
+        location.pathname="home.html"
+        test=true
+        localStorage.setItem('user',JSON.stringify(user))
+    }
 }
-else{alert('verfier vos donnees')}
-
+if (test==false){
+    alert('this combination was not found')
+}
 })
-

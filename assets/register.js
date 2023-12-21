@@ -1,23 +1,38 @@
-const button=document.getElementById('button')
-
-
-var password=document.getElementById('password')
 let email=document.getElementsByClassName('email')[0]
-let name=document.getElementsByTagName('input')[0]
-button.addEventListener('click',function(event){
-    event.preventDefault()
-    if(password.value.length<5 || name.value.length<3 || email.value.includes('@')==false){
-        alert('verfier vos donnees ')
+let userName=document.getElementsByTagName('input')[0]
+let password=document.querySelector('#password')
+const submitBtn=document.getElementById('button')
 
+
+let users =[
+
+]
+let test
+
+
+submitBtn.addEventListener('click',function(e){
+    e.preventDefault()
+    if(localStorage.getItem('users')==null){
+        localStorage.setItem("users","[]")
     }
-    else{
-        localStorage.setItem('name',name.value)
-        localStorage.setItem('email',email.value)
-        localStorage.setItem('password',password.value)
-        setTimeout(function(){
-            location.pathname="login.html"
-        }, 1500);
+     users=JSON.parse(localStorage.getItem('users'))
+     test=false
+for(let i=0;i<users.length;i++){
+    if (users[i].email==email.value){
+        alert('email already used')
+test=true
+        break
     }
+
+}
+if(test==false){
+    users.push({name:userName.value,
+    email:email.value,
+password:password.value})
+localStorage.setItem('users',JSON.stringify(users))
+setTimeout(function(){
+location.pathname='login.html'
+
+}, 1000);
+}
 })
-
-console.log(document.location)
